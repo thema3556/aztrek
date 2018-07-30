@@ -1,0 +1,48 @@
+.page-header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: 50vh;
+}
+
+.burger {
+    display: none;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.main-nav {
+    display: block;
+    background-color: $dark-red;
+    ul {
+        display: flex;
+    }
+    a {
+        display: block;
+        color: #fff;
+        padding: 1rem;
+        margin: 0 1rem;
+        &:hover,
+        &:focus {
+            color: lighten($color: $red, $amount: 20%);
+        }
+    }
+}
+
+.search-form {
+    margin-top: auto;
+}
+
+.owl-carousel {
+    padding: 80px 60px;
+    .btn {
+        margin-top: auto;
+    }
+    .owl-nav button {
+        top: calc(50% - 1.5rem);
+    }
+}

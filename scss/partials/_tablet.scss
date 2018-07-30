@@ -1,0 +1,45 @@
+.services {
+    .services-inner {
+        display: flex;
+        .service {
+            flex-basis: 33.33%;
+            display: flex;
+            flex-direction: column;
+            .more {
+                margin-top: auto; // align-self: flex-end;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+.owl-carousel {
+    .item {
+        flex-direction: row;
+        .item-infos {
+            flex-basis: 33.33%;
+            h2{
+                margin-top: 0;
+            }
+        }
+        .item-img {
+            flex-basis: 66.66%;
+            padding-left: 30px;
+        }
+    }
+}
+
+footer {
+    .footer-inner {
+        display: flex;
+        .footer-col {
+            flex-basis: 33.33%;
+            padding: 30px;
+            &:nth-of-type(2) {
+                border: 0;
+                border-left: 1px solid $gray;
+                border-right: 1px solid $gray;
+            }
+        }
+    }
+}

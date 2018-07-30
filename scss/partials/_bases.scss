@@ -1,0 +1,230 @@
+/* **********************************
+            BASE
+********************************** */
+
+html {
+    font-family: $font-default;
+    font-size: $font-size-base;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $marge;
+}
+
+h1,
+h3 {
+    font-family: $font-title;
+    font-weight: normal;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: $link-color;
+        transition: 0.3s;
+    }
+    &:hover,
+    &:focus {
+        color: ($link-color, 20%);
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* **********************************
+            HEADER
+********************************** */
+
+.header {
+    background: url('../images/bg_header.jpg') center bottom;
+    background-size: cover;
+    min-height: 50vh;
+    box-shadow: 0 50px 100px -50px $dark-gray;
+}
+
+
+.burger {
+    font-size: 0;
+    position: absolute;
+    top: $marge;
+    right: $marge;
+    .fa {
+        font-size: 3rem;
+        color: $brown;
+    }
+}
+
+.header-reseau {
+    display: none;
+}
+
+.title {
+    font-size: 0;
+}
+
+.formulaire {
+    display: flex;
+    margin-top: 30px;
+    background-color: rgba($light-gray, 0.5);
+    input[type="text"] {
+        border: 0;
+        background: none;
+        color: $brown;
+        padding: 1rem 1.5rem;
+        transition: background 0.3s;
+        &:focus {
+            background: rgba($light-gray, 0.5);
+            outline-color: $gray;
+        }
+        &::placeholder {
+            color: $brown;
+        }
+    }
+    button {
+        border: 0;
+        background: none;
+        font-size: 0;
+        color: $brown;
+        cursor: pointer;
+        padding: 0 1rem;
+        .fa {
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        &:hover .fa {
+            transform: translateX(-4px);
+        }
+    }
+}
+
+/* **********************************
+            MAIN
+********************************** */
+
+.h1 {
+    font-size: 0;
+}
+
+
+
+.owl-carousel {
+
+    padding: 80px 40px 60px;
+
+            h2 {
+                font-size: 2rem;
+                margin: 2rem 0 0;
+            }
+            h3 {
+                margin: 0 0 0.5rem;
+                color: $dark-gray;
+                text-transform: uppercase;
+                @include puce(0.75rem,
+                $dark-gray);
+            }
+            p {
+                margin-top: 0;
+            }
+            
+        }
+
+    .owl-nav {
+        button {
+            position: absolute;
+            top: 15px;
+            &::before {
+                content: '\f359';
+                font-family: "Font Awesome 5 Free";
+                font-size: 3rem;
+                color: #fff;
+            }
+            &.owl-prev {
+                left: 15px;
+                font-size: 0;
+            }
+            &.owl-next {
+                right: 15px;
+                font-size: 0;
+                &::before {
+                    content: '\f35a';
+                }
+            }
+        }
+    }
+}
+
+/* **********************************
+            FOOTER
+********************************** */
+
+footer {
+    background-color: $red;
+    color: #fff;
+    padding: 30px;
+    .footer-col {
+        padding: 30px;
+        &:nth-of-type(2) {
+            border-top: 1px solid $gray;
+            border-bottom: 1px solid $gray;
+        }
+        h3 {
+            color: $light-gray;
+            @include puce(1.25rem,
+            #fff);
+        }
+        p {
+            font-size: 0.875rem;
+        }
+        ul {
+            padding: 0 1rem;
+            font-size: 0.875rem;
+            li {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.social-nav {
+    margin: 30px 0;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        li {
+            margin: 15px;
+            a {
+                color: #fff;
+                font-size: 0;
+                transition: 0.3s;
+                &:hover {
+                    color: ($brown, 20%);
+                }
+                .fab {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}
