@@ -1,22 +1,30 @@
-    <main>
+<?php
+require_once 'lib/functions.php';
+require_once 'model/database.php';
 
-        <section class="section-destinations">  
-            <article class="titre-destinations">
-                <h2>IDÉES DE DESTINATIONS</h2>
-            </article>
+$list_pays = getAllEntities("pays");
 
-            <article class="idee-1">
-                <img src="uploads//photo-1482417395176-71d0c9e16e42.jpeg" alt="photo-1">
+get_header("Accueil");
+?>
+<main>
 
-                <p>KATIE HAWRYS MAI 2018</p>
+    <section class="section-destinations">  
+        <article class="titre-destinations">
+            <h2>IDÉES DE DESTINATIONS</h2>
+        </article>
 
-            </article>
-
-                <article class="idee-2">
-                    <img src="uploads//ernesto-abrego-626771-unsplash.jpg" alt="photo-2">
-    
-                    <p>JAMES NELLY AVRIL 2018</p>
-    
+        <section class="grid">
+            <?php foreach ($list_pays as $pays) : ?>
+                <article>
+                    <img src="uploads/<?php echo $pays["photo"]; ?>" alt="photo-1">
+                    <a href="pays.php?id=<?php echo $pays["id"]; ?>">
+                        <h2><?php echo $pays["nom"]; ?></h2>
+                    </a>
                 </article>
+            <?php endforeach; ?>
         </section>
-    
+
+    </section>
+</main>
+
+<?php get_footer(); ?>

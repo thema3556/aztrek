@@ -21,6 +21,23 @@ body {
     padding: 0 $marge;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    
+    > article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    img {
+        height: 250px;
+    }
+}
+
 h1,
 h3 {
     font-family: $font-title;
@@ -35,13 +52,13 @@ nav ul {
 
 a {
     &:link,
-    &:visited {
+        &:visited {
         text-decoration: none;
         color: $link-color;
         transition: 0.3s;
     }
     &:hover,
-    &:focus {
+        &:focus {
         color: ($link-color, 20%);
     }
 }
@@ -132,43 +149,42 @@ img {
 
     padding: 80px 40px 60px;
 
-            h2 {
-                font-size: 2rem;
-                margin: 2rem 0 0;
-            }
-            h3 {
-                margin: 0 0 0.5rem;
-                color: $dark-gray;
-                text-transform: uppercase;
-                @include puce(0.75rem,
-                $dark-gray);
-            }
-            p {
-                margin-top: 0;
-            }
-            
-        }
+    h2 {
+        font-size: 2rem;
+        margin: 2rem 0 0;
+    }
+    h3 {
+        margin: 0 0 0.5rem;
+        color: $dark-gray;
+        text-transform: uppercase;
+        @include puce(0.75rem,
+        $dark-gray);
+    }
+    p {
+        margin-top: 0;
+    }
 
-    .owl-nav {
-        button {
-            position: absolute;
-            top: 15px;
+}
+
+.owl-nav {
+    button {
+        position: absolute;
+        top: 15px;
+        &::before {
+            content: '\f359';
+            font-family: "Font Awesome 5 Free";
+            font-size: 3rem;
+            color: #fff;
+        }
+        &.owl-prev {
+            left: 15px;
+            font-size: 0;
+        }
+        &.owl-next {
+            right: 15px;
+            font-size: 0;
             &::before {
-                content: '\f359';
-                font-family: "Font Awesome 5 Free";
-                font-size: 3rem;
-                color: #fff;
-            }
-            &.owl-prev {
-                left: 15px;
-                font-size: 0;
-            }
-            &.owl-next {
-                right: 15px;
-                font-size: 0;
-                &::before {
-                    content: '\f35a';
-                }
+                content: '\f35a';
             }
         }
     }
@@ -179,7 +195,7 @@ img {
 ********************************** */
 
 footer {
-    background-color: $red;
+    background-color: $gray;
     color: #fff;
     padding: 30px;
     .footer-col {

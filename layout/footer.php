@@ -1,4 +1,4 @@
-  </main>   
+    
     <footer class="footer">
         <div class="footer-logo">
             <img src="images/logo-principal.png" alt="logo"/>

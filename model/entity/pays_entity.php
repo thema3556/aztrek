@@ -1,10 +1,10 @@
 <?php
 
-function insertCategorie(string $libelle): int {
+function insertSejour(string $libelle): int {
     /* @var $connexion PDO */
     global $connexion;
     
-    $query = "INSERT INTO categorie (libelle) VALUES (:libelle)";
+    $query = "INSERT INTO sejour (libelle) VALUES (:libelle)";
     
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":libelle", $libelle);
