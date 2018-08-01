@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Retourne la liste des projets
- * @return array Liste des projets
+ * Retourne la liste des sejours
+ * @return array Liste des sejours
  */
 function getAllSejoursByPays(int $id): array {
     global $connexion;
@@ -19,22 +19,15 @@ function getAllSejoursByPays(int $id): array {
     return $stmt->fetchAll();
 }
 
-function getProject(int $id): array {
+function getSejour(int $id): array {
     global $connexion;
 
     $query = "SELECT
-                projet.*,
-                DATE_FORMAT(projet.date_debut, '%d/%m/%Y') AS date_debut_format,
-                REPLACE(FORMAT(projet.prix, 'currency', 'de_DE'), '.', ' ') AS prix_format,
-                categorie.libelle AS categorie,
-                COUNT(participation.id) AS nb_participants,
-                IFNULL(SUM(participation.montant), 0) AS montant_participations,
-                AVG(notation.note) AS note_moyenne
-            FROM projet
-            INNER JOIN categorie ON categorie.id = projet.categorie_id
-            LEFT JOIN participation ON participation.projet_id = projet.id
-            LEFT JOIN notation ON notation.projet_id = projet.id
-            WHERE projet.id = :id;";
+                sejour.*,
+                pays.nom AS pays
+            FROM sejour
+            INNER JOIN pays ON pays.id = sejour.pays_id
+            WHERE sejour.id = :id;";
 
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":id", $id);

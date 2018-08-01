@@ -8,7 +8,7 @@ if (!isset($_GET["id"])) {
 
 $id = $_GET["id"];
 $sejour = getSejour($id);
-$list_sejours = getAllSejoursByProject($id);
+$list_departs = getAllDepartsBySejour($id);
 
 $utilisateur = current_user();
 
@@ -16,28 +16,39 @@ get_header($sejour["titre"]);
 ?>
 
 <section class="container">
-    <h1><?php echo $sejour["titre"]; ?></h1>
+    <h1><?php echo $sejour["pays"]; ?> - <?php echo $sejour["titre"]; ?></h1>
 
-    <aside class="list-users">
-        <?php if (!empty($utilisateur)) : ?>
-            <form action="insert_sejour.php" method="post">
-                Je donne
-                <input type="number" name="montant">€
-                <input type="hidden" name="sejour_id" value="<?php echo $id; ?>">
-                <input type="submit">
-            </form>
-        <?php endif; ?>
-        <?php foreach ($list_sejours as $sejour) : ?>
-            <article>
-                <img src="<?php echo get_avatar($utilisateur["photo"]); ?>" alt="">
-                <div>
-                    <a href="user.php?id=<?php echo $utilisateur["utilisateur_id"]; ?>"><?php echo $utilsateur["nom"] . " " . $utilisateur["prenom"]; ?></a>
-                    <em><?php echo $utilisateur["montant"]; ?> €</em>
-                </div>
-            </article>
-        <?php endforeach; ?>
-    </aside>
-
+    <table>
+        <thead>
+            <tr>
+                <th>Date de départ</th>
+                <th>Prix</th>
+                <th>Places</th>
+                <th>Places restantes</th>
+                <th>Réservation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($list_departs as $depart) : ?>
+                <tr>
+                    <td><?php echo $depart["date_depart"]; ?></td>
+                    <td><?php echo $depart["prix"]; ?></td>
+                    <td><?php echo $depart["place_totale"]; ?></td>
+                    <td><?php echo $depart["place_restante"]; ?></td>
+                    <td>
+                        <?php if (!empty($utilisateur)) : ?>
+                            <form action="insert_reservation.php" method="post">
+                                <input type="number" name="nb_places">
+                                <input type="hidden" name="depart_id" value="<?php echo $depart["id"]; ?>">
+                                <input type="submit">
+                            </form>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    
 </section>
 
 <?php get_footer(); ?>
