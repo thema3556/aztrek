@@ -17,7 +17,11 @@ get_header($sejour["titre"]);
 
 <section class="container">
     <h1><?php echo $sejour["pays"]; ?> - <?php echo $sejour["titre"]; ?></h1>
-
+    
+    <div>
+        <img src="uploads/costa_photo.jpeg" alt="photo_costa">
+    </div>
+    
     <table>
         <thead>
             <tr>
@@ -40,6 +44,7 @@ get_header($sejour["titre"]);
                             <form action="insert_reservation.php" method="post">
                                 <input type="number" name="nb_places">
                                 <input type="hidden" name="depart_id" value="<?php echo $depart["id"]; ?>">
+                                <input type="hidden" name="sejour_id" value="<?php echo $sejour["id"]; ?>">
                                 <input type="submit">
                             </form>
                         <?php endif; ?>

@@ -1,6 +1,6 @@
 <?php require_once '../../layout/header.php'; ?>
 
-<h1>Ajouter une catégorie</h1>
+<h1>Ajouter un séjour</h1>
 
 <form action="insert_query.php" method="post">
     <div class="form-group row">
@@ -11,7 +11,7 @@
     </div>
     <button type="submit" class="btn btn-success float-right">
         <i class="fa fa-save"></i>
-        Enregistrer
+        Valider
     </button>
 </form>
 

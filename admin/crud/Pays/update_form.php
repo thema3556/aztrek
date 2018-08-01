@@ -7,7 +7,7 @@ $categorie = getOneEntity("categorie", $id);
 require_once '../../layout/header.php';
 ?>
 
-<h1>Modifier une catégorie</h1>
+<h1>Modifier un séjour</h1>
 
 <form action="update_query.php" method="post">
     <div class="form-group row">
@@ -19,7 +19,7 @@ require_once '../../layout/header.php';
     <input type="hidden" name="id" value="<?php echo $id; ?>">
     <button type="submit" class="btn btn-success float-right">
         <i class="fa fa-save"></i>
-        Enregistrer
+        Valider
     </button>
 </form>
 
