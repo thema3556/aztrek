@@ -4,13 +4,13 @@ require_once 'model/database.php';
 
 $projects = getAllProjects();
 
-get_header("Liste des projets");
+get_header("Liste des sejours");
 ?>
 
 <section class="container">
     <div class="actions">
-        <?php foreach ($projects as $project) : ?>
-            <?php include 'include/project_inc.php'; ?>
+        <?php foreach ($sejour as $sejour) : ?>
+            <?php include 'include/sejour_inc.php'; ?>
         <?php endforeach; ?>
     </div>
 </section>

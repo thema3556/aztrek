@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$list_projets = getAllSejoursByPays();
+$list_sejours = getAllSejours();
 
 require_once '../../layout/header.php';
 ?>
@@ -15,31 +15,30 @@ require_once '../../layout/header.php';
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
+            <th>Pays</th>
             <th>Titre</th>
-            <th>Date départ</th>
-            <th>sejour</th>
             <th>Photo</th>
-            <th>Prix</th>
+            <th>Duree</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($list_sejours as $pays) : ?>
+        <?php foreach ($list_sejours as $sejour) : ?>
         <tr>
-            <td><?php echo $projet["titre"]; ?></td>
-            <td><?php echo $projet["date_debut_format"]; ?></td>
-            <td><?php echo $projet["categorie"]; ?></td>
+            <td><?php echo $sejour["pays"]; ?></td>
+            <td><?php echo $sejour["titre"]; ?></td>
             <td>
-                <img src="<?php echo SITE_URL . "/uploads/" . $projet["image"]; ?>" class="img-thumbnail">
+                <img src="<?php echo SITE_URL . "/uploads/" . $sejour["image"]; ?>" class="img-thumbnail">
             </td>
-            <td><?php echo $projet["prix_format"]; ?> €</td>
+            <td><?php echo $sejour["duree"]; ?> jours</td>
             <td class="col-actions">
                 <form action="delete_query.php" method="post" class="form-delete">
-                    <input type="hidden" name="id" value="<?php echo $projet["id"]; ?>">
+                    <input type="hidden" name="id" value="<?php echo $sejour["id"]; ?>">
                     <button type="submit" class="btn btn-danger" title="Supprimer">
                         <i class="fa fa-trash"></i>
                     </button>
                 </form>
-                <a href="update_form.php?id=<?php echo $projet["id"]; ?>" class="btn btn-warning">
+                <a href="update_form.php?id=<?php echo $sejour["id"]; ?>" class="btn btn-warning">
                     <i class="fa fa-edit"></i>
                 </a>
             </td>

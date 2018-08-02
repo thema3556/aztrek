@@ -1,5 +1,21 @@
 <?php
 
+function getAllSejours(): array {
+    global $connexion;
+
+    $query = "SELECT
+                sejour.*,
+                pays.nom AS pays
+            FROM sejour
+            INNER JOIN pays ON pays.id = sejour.pays_id
+            ;";
+
+    $stmt = $connexion->prepare($query);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
 /**
  * Retourne la liste des sejours
  * @return array Liste des sejours
