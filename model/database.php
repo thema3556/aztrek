@@ -39,7 +39,6 @@ function getOneEntity(string $table, int $id): array {
 
     return $stmt->fetch();
 }
-
 function deleteEntity(string $table, int $id) {
     global $connexion;
     

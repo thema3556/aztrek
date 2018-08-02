@@ -40,7 +40,7 @@ require_once '../../layout/header.php';
             <select name="pays_id" class="form-control">
                 <?php foreach ($list_pays as $pays) : ?>
                     <option value="<?php echo $pays["id"]; ?>">
-                        <?php echo $pays["libelle"]; ?>
+                        <?php echo $pays["nom"]; ?>
                     </option>
                 <?php endforeach; ?>
             </select>
