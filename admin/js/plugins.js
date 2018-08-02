@@ -45497,8 +45497,8 @@ $$1.summernote = $$1.extend($$1.summernote, {
 $(document).ready(function(){
     
     $("select").select2();
-    $("table").DataTable();
     $("textarea").summernote();
+    $("table").DataTable();
     
     // Confirmation sur suppression
     $(".form-delete").submit(function(event) {

@@ -55,9 +55,9 @@ function getSejour(int $id): array {
 function insertProject(string $titre, string $image, string $date_debut, string $date_fin, float $prix, string $description, int $categorie_id): int {
     /* @var $connexion PDO */
     global $connexion;
-    
+
     $query = "INSERT INTO sejour (titre, image, date_debut, date_fin, description, prix, categorie_id) VALUES (:titre, :image, :date_depart, :description, :prix, :categorie_id)";
-    
+
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":titre", $titre);
     $stmt->bindParam(":image", $image);
@@ -67,35 +67,31 @@ function insertProject(string $titre, string $image, string $date_debut, string 
     $stmt->bindParam(":prix", $prix);
     $stmt->bindParam(":categorie_id", $categorie_id);
     $stmt->execute();
-    
+
     return $connexion->lastInsertId();
 }
 
-function updateProject(int $id, string $titre, string $image, string $date_debut, string $date_fin, float $prix, string $description, int $categorie_id): int {
+function updateSejour(int $id, string $titre, string $image, int $duree, string $description, int $pays_id): int {
     /* @var $connexion PDO */
     global $connexion;
-    
-    $query = "UPDATE projet
+
+    $query = "UPDATE sejour
                 SET titre = :titre,
                     image = :image,
-                    date_debut = :date_debut,
-                    date_fin= :date_fin,
-                    prix = :prix,
+                    duree = :duree,
                     description = :description,
-                    categorie_id = :sejour_id
+                    pays_id = :pays_id
                 WHERE id = :id
             ";
-    
+
     $stmt = $connexion->prepare($query);
     $stmt->bindParam(":id", $id);
     $stmt->bindParam(":titre", $titre);
     $stmt->bindParam(":image", $image);
-    $stmt->bindParam(":date_depart", $date_depart);
-    $stmt->bindParam(":date_fin", $date_fin);
     $stmt->bindParam(":description", $description);
-    $stmt->bindParam(":prix", $prix);
-    $stmt->bindParam(":categorie_id", $categorie_id_id);
+    $stmt->bindParam(":duree", $duree);
+    $stmt->bindParam(":pays_id", $pays_id);
     $stmt->execute();
-    
+
     return $connexion->lastInsertId();
 }

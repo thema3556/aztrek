@@ -2,10 +2,10 @@
         <nav class="main-nav">
             <ul class="container">
                 <li>
-                    <a href="#">ACCUEIL</a>
+                    <a href="index.php">ACCUEIL</a>
                 </li>
                 <li>
-                    <a href="#">DESTINATIONS</a>
+                    <a href="sejour.php">DESTINATIONS</a>
                 </li>
                 <li>
                     <a href="#">COMMUNAUTÉ</a>
@@ -34,3 +34,4 @@
             </div>
 
     </header>
+

@@ -16,6 +16,8 @@ if ($_FILES["photo"]["error"] == UPLOAD_ERR_NO_FILE) {
     move_uploaded_file($tmp, "../../../uploads/" . $photo);
 }
 
+//Enregistrement base de données 
 updatePays($id, $nom, $photo);
 
+//Redirection vers la liste
 header("Location: index.php");

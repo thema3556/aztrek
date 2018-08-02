@@ -2,7 +2,7 @@
 require_once '../../../model/database.php';
 
 $id = $_GET["id"];
-$pays = getOneEntity("pays", $id);
+$sejour = getOneEntity("sejour", $id);
 
 $list_pays = getAllEntities("pays");
 
@@ -15,30 +15,30 @@ require_once '../../layout/header.php';
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Titre</label>
         <div class="col-sm-10">
-            <input type="text" name="titre" value="<?php echo $pays["nom"]; ?>" class="form-control" placeholder="Titre">
+            <input type="text" name="titre" value="<?php echo $sejour["titre"]; ?>" class="form-control" placeholder="Titre">
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Image</label>
         <div class="col-sm-1">
-            <img src="../../../uploads/<?php echo $pays["image"]; ?>"  class="img-responsive img-thumbnail">
+            <img src="../../../uploads/<?php echo $sejour["image"]; ?>"  class="img-responsive img-thumbnail">
         </div>
         <div class="col-sm-9">
             <input type="file" name="image" accept="images/*" class="form-control">
         </div>
     </div>
-    
+
     <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Prix</label>
+        <label class="col-sm-2 col-form-label">Durée</label>
         <div class="col-sm-10">
-            <input type="number" name="prix" value="<?php echo $pays["prix"]; ?>" class="form-control">
+            <input type="number" name="duree" value="<?php echo $sejour["duree"]; ?>" class="form-control">
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Description</label>
         <div class="col-sm-10">
             <textarea name="description" class="form-control">
-                <?php echo $pays["description"]; ?>
+                <?php echo $sejour["description"]; ?>
             </textarea>
         </div>
     </div>
@@ -46,9 +46,9 @@ require_once '../../layout/header.php';
         <label class="col-sm-2 col-form-label">Pays</label>
         <div class="col-sm-10">
             <select name="pays_id" class="form-control">
-                <?php foreach ($list_sejours as $pays) : ?>
+                <?php foreach ($list_pays as $pays) : ?>
                     <?php $selected = ($pays["id"] == $pays["pays_id"]) ? "selected" : ""; ?>
-                <option value="<?php echo $pays_id["id"]; ?>" <?php echo $selected; ?>>
+                    <option value="<?php echo $pays["id"]; ?>" <?php echo $selected; ?>>
                         <?php echo $pays["nom"]; ?>
                     </option>
                 <?php endforeach; ?>

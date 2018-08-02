@@ -1,6 +1,7 @@
 $(document).ready(function(){
     
     $("select").select2();
+    $("textarea").summernote();
     $("table").DataTable();
     
     // Confirmation sur suppression
